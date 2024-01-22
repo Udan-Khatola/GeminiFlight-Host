@@ -1,1 +1,665 @@
-[]
+[
+    {
+        "id": "380460893c60b2c6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ea84731956ab815b",
+        "type": "subflow",
+        "name": "GeminiLink Read",
+        "info": "",
+        "category": "",
+        "in": [],
+        "out": [
+            {
+                "x": 960,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "666f1163e642a8b9",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "6cc1fd480e1ff2c0",
+        "type": "subflow",
+        "name": "GeminiLink Write",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 220,
+                "y": 280,
+                "wires": [
+                    {
+                        "id": "b2efc1e6cc0017fa"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
+    },
+    {
+        "id": "94dee6602e9a1eec",
+        "type": "group",
+        "z": "ea84731956ab815b",
+        "name": "Agent API",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "4960149ebfbd4d72",
+            "0c4762ea057adf69",
+            "f27e8ed65d397c91",
+            "d16ea17a1e2f816b",
+            "154687fb54a962c7",
+            "e6af3d2bd6c0f36c",
+            "93909c6e451c042d",
+            "5eef78405643dc1b",
+            "c144eb6d0ed8266b",
+            "638977aa804d7219",
+            "bb883ca18dc31902"
+        ],
+        "x": 274,
+        "y": 119,
+        "w": 312,
+        "h": 482,
+        "info": "https://www.npmjs.com/package/arduino-create-agent-js-client\r\nhttps://github.com/arduino/arduino-create-agent/wiki/How-to-use-the-agent"
+    },
+    {
+        "id": "b2e5a64da16e191f",
+        "type": "group",
+        "z": "6cc1fd480e1ff2c0",
+        "name": "Agent API",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0f60bb3b3f2c7830",
+            "9f610c27c1616e84",
+            "41c3d54a1a1fc3fa",
+            "481106cef217fc34",
+            "64e59843aeb5c894",
+            "c3a0a23d3f2295a4",
+            "baa03aa457ec27dd",
+            "6ee6ed7c3843ef24",
+            "8219abc93e942dd0",
+            "4296d8e1b856e8ef",
+            "434e0a30073d0a7e"
+        ],
+        "x": 594,
+        "y": 139,
+        "w": 312,
+        "h": 482,
+        "info": "https://www.npmjs.com/package/arduino-create-agent-js-client\r\nhttps://github.com/arduino/arduino-create-agent/wiki/How-to-use-the-agent"
+    },
+    {
+        "id": "4960149ebfbd4d72",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.agentFound",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 410,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c4762ea057adf69",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.channelOpenStatus",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 430,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f27e8ed65d397c91",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.error",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 380,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d16ea17a1e2f816b",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.devicesList",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 400,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "154687fb54a962c7",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.start",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 380,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e6af3d2bd6c0f36c",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.read",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 380,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93909c6e451c042d",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.close",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 390,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5eef78405643dc1b",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.write",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 380,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c144eb6d0ed8266b",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.flashFirmware",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 410,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "638977aa804d7219",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.flashFirmwareStatus",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 430,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb883ca18dc31902",
+        "type": "function",
+        "z": "ea84731956ab815b",
+        "g": "94dee6602e9a1eec",
+        "name": "GeminiLink.startAgent",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 400,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "666f1163e642a8b9",
+        "type": "json",
+        "z": "ea84731956ab815b",
+        "name": "Serialize",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 820,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0f60bb3b3f2c7830",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.agentFound",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 730,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f610c27c1616e84",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.channelOpenStatus",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 750,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41c3d54a1a1fc3fa",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.error",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 700,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "481106cef217fc34",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.devicesList",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 720,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "64e59843aeb5c894",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.start",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 700,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3a0a23d3f2295a4",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.read",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 700,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "baa03aa457ec27dd",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.close",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 710,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6ee6ed7c3843ef24",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.write",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 700,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8219abc93e942dd0",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.flashFirmware",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 730,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4296d8e1b856e8ef",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.flashFirmwareStatus",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 750,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "434e0a30073d0a7e",
+        "type": "function",
+        "z": "6cc1fd480e1ff2c0",
+        "g": "b2e5a64da16e191f",
+        "name": "GeminiLink.startAgent",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "GeminiLink",
+                "module": "arduino-create-agent-js-client"
+            }
+        ],
+        "x": 720,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2efc1e6cc0017fa",
+        "type": "json",
+        "z": "6cc1fd480e1ff2c0",
+        "name": "Deserialize",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 370,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    }
+]
