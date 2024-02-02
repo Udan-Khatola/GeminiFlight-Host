@@ -2,7 +2,10 @@
     "name": "GeminiFlight-Host",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "@node-red-contrib-themes/theme-collection": "^3.1.9",
+        "arduino-create-agent-js-client": "^2.11.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
