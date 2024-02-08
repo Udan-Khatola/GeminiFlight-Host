@@ -107,6 +107,12 @@
         "info": "https://www.npmjs.com/package/arduino-create-agent-js-client\r\nhttps://github.com/arduino/arduino-create-agent/wiki/How-to-use-the-agent"
     },
     {
+        "id": "5ba86d0d1a8e44a7",
+        "type": "websocket-listener",
+        "path": "/ws/camera",
+        "wholemsg": "false"
+    },
+    {
         "id": "4960149ebfbd4d72",
         "type": "function",
         "z": "ea84731956ab815b",
@@ -661,5 +667,201 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "bccc57f77f52f97e",
+        "type": "debug",
+        "z": "380460893c60b2c6",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1f516d4f393d6632",
+        "type": "catch",
+        "z": "380460893c60b2c6",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 840,
+        "y": 140,
+        "wires": [
+            [
+                "bccc57f77f52f97e"
+            ]
+        ]
+    },
+    {
+        "id": "b9718602d94a6d92",
+        "type": "websocket out",
+        "z": "380460893c60b2c6",
+        "name": "",
+        "server": "5ba86d0d1a8e44a7",
+        "client": "",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "b307e5e36a7d2bd5",
+        "type": "udp in",
+        "z": "380460893c60b2c6",
+        "name": "Pi Cam",
+        "iface": "",
+        "port": "42069",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "b9718602d94a6d92"
+            ]
+        ],
+        "icon": "node-red/rpi.svg"
+    },
+    {
+        "id": "73e8cec3aa242de4",
+        "type": "exec",
+        "z": "380460893c60b2c6",
+        "command": "raspivid -t 0 -n -o udp://0.0.0.0:42069",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 630,
+        "y": 480,
+        "wires": [
+            [
+                "e3e6a8841edae516"
+            ],
+            [
+                "e3e6a8841edae516"
+            ],
+            [
+                "e3e6a8841edae516"
+            ]
+        ]
+    },
+    {
+        "id": "e3e6a8841edae516",
+        "type": "debug",
+        "z": "380460893c60b2c6",
+        "name": "Camera Server Log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c63c054fd6b711fa",
+        "type": "inject",
+        "z": "380460893c60b2c6",
+        "name": "Spawn Camera",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "73e8cec3aa242de4"
+            ]
+        ]
+    },
+    {
+        "id": "c23663d72be86b25",
+        "type": "inject",
+        "z": "380460893c60b2c6",
+        "name": "Kill Camera",
+        "props": [
+            {
+                "p": "kill",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 330,
+        "y": 500,
+        "wires": [
+            [
+                "73e8cec3aa242de4"
+            ]
+        ]
+    },
+    {
+        "id": "a45c141299e52353",
+        "type": "template",
+        "z": "380460893c60b2c6",
+        "name": "Cam Test Page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<h1>Sup bitches</h1>\n<h2>Helo my name Deepu</h2>",
+        "output": "str",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "6fd5ec57ce50a179"
+            ]
+        ]
+    },
+    {
+        "id": "ddb802d233c649c1",
+        "type": "http in",
+        "z": "380460893c60b2c6",
+        "name": "",
+        "url": "/camera",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "a45c141299e52353"
+            ]
+        ]
+    },
+    {
+        "id": "6fd5ec57ce50a179",
+        "type": "http response",
+        "z": "380460893c60b2c6",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 590,
+        "y": 140,
+        "wires": []
     }
 ]
