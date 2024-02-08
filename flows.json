@@ -107,6 +107,60 @@
         "info": "https://www.npmjs.com/package/arduino-create-agent-js-client\r\nhttps://github.com/arduino/arduino-create-agent/wiki/How-to-use-the-agent"
     },
     {
+        "id": "fc30f06a8280dca5",
+        "type": "group",
+        "z": "380460893c60b2c6",
+        "name": "Cam Test",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "a45c141299e52353",
+            "ddb802d233c649c1",
+            "6fd5ec57ce50a179"
+        ],
+        "x": 94,
+        "y": 99,
+        "w": 572,
+        "h": 82
+    },
+    {
+        "id": "862abdb88a01c686",
+        "type": "group",
+        "z": "380460893c60b2c6",
+        "name": "General Error Handling",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "bccc57f77f52f97e",
+            "1f516d4f393d6632"
+        ],
+        "x": 754,
+        "y": 99,
+        "w": 352,
+        "h": 82
+    },
+    {
+        "id": "34a1dfac2d57c165",
+        "type": "group",
+        "z": "380460893c60b2c6",
+        "name": "Camera Server Orchestration",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "73e8cec3aa242de4",
+            "e3e6a8841edae516",
+            "c63c054fd6b711fa",
+            "c23663d72be86b25"
+        ],
+        "x": 194,
+        "y": 459,
+        "w": 852,
+        "h": 122
+    },
+    {
         "id": "5ba86d0d1a8e44a7",
         "type": "websocket-listener",
         "path": "/ws/camera",
@@ -672,15 +726,17 @@
         "id": "bccc57f77f52f97e",
         "type": "debug",
         "z": "380460893c60b2c6",
-        "name": "debug 1",
+        "g": "862abdb88a01c686",
+        "name": "Failure",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1020,
+        "x": 1010,
         "y": 140,
         "wires": []
     },
@@ -688,6 +744,7 @@
         "id": "1f516d4f393d6632",
         "type": "catch",
         "z": "380460893c60b2c6",
+        "g": "862abdb88a01c686",
         "name": "",
         "scope": null,
         "uncaught": false,
@@ -706,7 +763,7 @@
         "name": "",
         "server": "5ba86d0d1a8e44a7",
         "client": "",
-        "x": 660,
+        "x": 640,
         "y": 320,
         "wires": []
     },
@@ -721,7 +778,7 @@
         "multicast": "false",
         "group": "",
         "datatype": "buffer",
-        "x": 470,
+        "x": 450,
         "y": 320,
         "wires": [
             [
@@ -734,6 +791,7 @@
         "id": "73e8cec3aa242de4",
         "type": "exec",
         "z": "380460893c60b2c6",
+        "g": "34a1dfac2d57c165",
         "command": "raspivid -t 0 -n -o udp://0.0.0.0:42069",
         "addpay": "",
         "append": "",
@@ -742,8 +800,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 630,
-        "y": 480,
+        "x": 610,
+        "y": 520,
         "wires": [
             [
                 "e3e6a8841edae516"
@@ -760,6 +818,7 @@
         "id": "e3e6a8841edae516",
         "type": "debug",
         "z": "380460893c60b2c6",
+        "g": "34a1dfac2d57c165",
         "name": "Camera Server Log",
         "active": true,
         "tosidebar": true,
@@ -769,14 +828,15 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 480,
+        "x": 910,
+        "y": 520,
         "wires": []
     },
     {
         "id": "c63c054fd6b711fa",
         "type": "inject",
         "z": "380460893c60b2c6",
+        "g": "34a1dfac2d57c165",
         "name": "Spawn Camera",
         "props": [],
         "repeat": "",
@@ -785,7 +845,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 320,
-        "y": 460,
+        "y": 500,
         "wires": [
             [
                 "73e8cec3aa242de4"
@@ -796,6 +856,7 @@
         "id": "c23663d72be86b25",
         "type": "inject",
         "z": "380460893c60b2c6",
+        "g": "34a1dfac2d57c165",
         "name": "Kill Camera",
         "props": [
             {
@@ -810,7 +871,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 330,
-        "y": 500,
+        "y": 540,
         "wires": [
             [
                 "73e8cec3aa242de4"
@@ -821,6 +882,7 @@
         "id": "a45c141299e52353",
         "type": "template",
         "z": "380460893c60b2c6",
+        "g": "fc30f06a8280dca5",
         "name": "Cam Test Page",
         "field": "payload",
         "fieldType": "msg",
@@ -840,6 +902,7 @@
         "id": "ddb802d233c649c1",
         "type": "http in",
         "z": "380460893c60b2c6",
+        "g": "fc30f06a8280dca5",
         "name": "",
         "url": "/camera",
         "method": "get",
@@ -857,6 +920,7 @@
         "id": "6fd5ec57ce50a179",
         "type": "http response",
         "z": "380460893c60b2c6",
+        "g": "fc30f06a8280dca5",
         "name": "",
         "statusCode": "",
         "headers": {},
