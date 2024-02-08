@@ -74,9 +74,9 @@
             "bb883ca18dc31902"
         ],
         "x": 274,
-        "y": 119,
-        "w": 312,
-        "h": 482,
+        "y": 19,
+        "w": 372,
+        "h": 582,
         "info": "https://www.npmjs.com/package/arduino-create-agent-js-client\r\nhttps://github.com/arduino/arduino-create-agent/wiki/How-to-use-the-agent"
     },
     {
@@ -364,8 +364,8 @@
                 "module": "arduino-create-agent-js-client"
             }
         ],
-        "x": 400,
-        "y": 160,
+        "x": 520,
+        "y": 60,
         "wires": [
             []
         ]
